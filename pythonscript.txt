@@ -1,0 +1,64 @@
+import re
+
+myfile="myfile.txt"
+pattern="^\w+\@\w+\.\w+$"
+print ("Choose one. \n1. Register \n2. Login \n3. Forgot Password)
+choice=int(input.read())
+user=input("Please enter username:")
+x=re.search(pattern,user)
+if (x):
+   if (choice!=3):
+   	password=input("Please enter password:")
+else:
+    print ("Invalid Username")
+
+if (choice==1):
+   if (len(password)>5 and len(password)<16):
+       if (re.search("[a-z]",password)):
+           if (re.search("[A-Z]",password)):
+               if (re.search("[0-9]",password)):
+                   if (re.search("[\!\@\#\$\%\&\*]",password)):
+                       f = open(myfile, mode="r+")
+		       text = f.read()
+		       if (re.search(user,text)):
+			   print ("Username is already present. Please Login")
+		       else:
+			   myString=user."=".password
+			   f.write(myString)
+			   f.close()
+                   else:
+                       print ("Password must contains atleast 1 special character")
+               else:
+                   print ("Password must contains atleast 1 number")
+           else:
+                print ("Password must contains atleast 1 uppercase letter")
+       else:
+            print ("Password must contains atleast 1 lowercase letter")
+   else:
+        print ("Password must contains minimum 6 characters and maximum 15 characters")               
+
+elif (choice==2):
+	f = open(myfile, mode="r")
+	text = f.read()
+	myString=user."=".password
+	if (re.search(myString,text)):
+		print ("Login Succeeded")
+	else:
+		print ("Username or Password is incorrect")
+	f.close()
+elif(choice==3):
+	f = open(myfile, mode="r")
+	found=0
+	for x in f:
+		if (re.search(user,x):
+			found=1
+			mypassword=x.split("=")[1]
+			print ("Password is ",password)
+	if(found==0):
+		print ("Username is not present. Please Register")
+else:
+	print("Invalid choice")
+
+
+			 
+	
