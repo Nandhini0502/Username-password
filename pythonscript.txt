@@ -2,7 +2,7 @@ import re
 
 myfile="myfile.txt"
 pattern="^\w+\@\w+\.\w+$"
-print ("Choose one. \n1. Register \n2. Login \n3. Forgot Password)
+print ("'Choose one' \n1 'Register' \n2 'Login' \n3 'Forgot Password'")
 choice=int(input.read())
 user=input("Please enter username:")
 x=re.search(pattern,user)
@@ -23,7 +23,7 @@ if (choice==1):
 		       if (re.search(user,text)):
 			   print ("Username is already present. Please Login")
 		       else:
-			   myString=user."=".password
+			   myString=user+"="+password
 			   f.write(myString)
 			   f.close()
                    else:
@@ -40,7 +40,7 @@ if (choice==1):
 elif (choice==2):
 	f = open(myfile, mode="r")
 	text = f.read()
-	myString=user."=".password
+	myString=user+"="+password
 	if (re.search(myString,text)):
 		print ("Login Succeeded")
 	else:
